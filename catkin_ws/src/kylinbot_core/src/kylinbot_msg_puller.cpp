@@ -113,7 +113,7 @@ void publishOdomeMsg(ros::Publisher *pub, const KylinMsg_t* kylinMsg)
   float vy = kylinMsg->cbus.cv.y / KYLIN_MSG_VALUE_SCALE;
   float vz = kylinMsg->cbus.cv.z / KYLIN_MSG_VALUE_SCALE; // rad/s to deg/s
   
-  tf::TransformBroadcaster odom_broadcaster;
+  static tf::TransformBroadcaster odom_broadcaster;
   
   //since all odometry is 6DOF we'll need a quaternion created from yaw
   geometry_msgs::Quaternion odom_quat = tf::createQuaternionMsgFromYaw(pz);
