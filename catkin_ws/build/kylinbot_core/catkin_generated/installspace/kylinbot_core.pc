@@ -1,0 +1,8 @@
+prefix=/home/ubuntu/workspace/ros/gnd-ros/catkin_ws/install
+
+Name: kylinbot_core
+Description: Description of kylinbot_core
+Version: 0.0.0
+Cflags: -I/home/ubuntu/workspace/ros/gnd-ros/catkin_ws/install/include
+Libs: -L/home/ubuntu/workspace/ros/gnd-ros/catkin_ws/install/lib -lkylinbot_core
+Requires: message_runtime

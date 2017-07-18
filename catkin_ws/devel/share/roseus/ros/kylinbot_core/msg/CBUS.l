@@ -82,12 +82,12 @@
    (+
     ;; uint32 _fs
     4
-    ;; int16 _px
-    2
-    ;; int16 _py
-    2
-    ;; int16 _pz
-    2
+    ;; int32 _px
+    4
+    ;; int32 _py
+    4
+    ;; int32 _pz
+    4
     ;; int16 _pe
     2
     ;; int16 _pc
@@ -109,12 +109,12 @@
               (make-string-output-stream (send self :serialization-length)))))
      ;; uint32 _fs
        (write-long _fs s)
-     ;; int16 _px
-       (write-word _px s)
-     ;; int16 _py
-       (write-word _py s)
-     ;; int16 _pz
-       (write-word _pz s)
+     ;; int32 _px
+       (write-long _px s)
+     ;; int32 _py
+       (write-long _py s)
+     ;; int32 _pz
+       (write-long _pz s)
      ;; int16 _pe
        (write-word _pe s)
      ;; int16 _pc
@@ -135,12 +135,12 @@
    (buf &optional (ptr- 0))
    ;; uint32 _fs
      (setq _fs (sys::peek buf ptr- :integer)) (incf ptr- 4)
-   ;; int16 _px
-     (setq _px (sys::peek buf ptr- :short)) (incf ptr- 2)
-   ;; int16 _py
-     (setq _py (sys::peek buf ptr- :short)) (incf ptr- 2)
-   ;; int16 _pz
-     (setq _pz (sys::peek buf ptr- :short)) (incf ptr- 2)
+   ;; int32 _px
+     (setq _px (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32 _py
+     (setq _py (sys::peek buf ptr- :integer)) (incf ptr- 4)
+   ;; int32 _pz
+     (setq _pz (sys::peek buf ptr- :integer)) (incf ptr- 4)
    ;; int16 _pe
      (setq _pe (sys::peek buf ptr- :short)) (incf ptr- 2)
    ;; int16 _pc
@@ -159,13 +159,13 @@
    self)
   )
 
-(setf (get kylinbot_core::CBUS :md5sum-) "93fce3d0dc3169a0815342b4ce4be9c7")
+(setf (get kylinbot_core::CBUS :md5sum-) "02efdbd963407cada8f8ec3c4f70f1f5")
 (setf (get kylinbot_core::CBUS :datatype-) "kylinbot_core/CBUS")
 (setf (get kylinbot_core::CBUS :definition-)
       "uint32 fs
-int16 px
-int16 py
-int16 pz
+int32 px
+int32 py
+int32 pz
 int16 pe
 int16 pc
 int16 vx
@@ -178,6 +178,6 @@ int16 vc
 
 
 
-(provide :kylinbot_core/CBUS "93fce3d0dc3169a0815342b4ce4be9c7")
+(provide :kylinbot_core/CBUS "02efdbd963407cada8f8ec3c4f70f1f5")
 
 

@@ -76,7 +76,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/opt/ros/indigo/share/std_msgs/cmake/../msg'], 'kylinbot_core': ['/home/ubuntu/workspace/icra2017rm-mmc-ros/catkin_ws/src/kylinbot_core/msg']}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'kylinbot_core': ['/home/ubuntu/workspace/ros/gnd-ros/catkin_ws/src/kylinbot_core/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -119,12 +119,12 @@ struct MD5Sum< ::kylinbot_core::Kylin_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "7131cdc32dd59ffa695dfef23c1bbcb8";
+    return "29e193a426cfd4a42ee5c1e79efd2ba8";
   }
 
   static const char* value(const ::kylinbot_core::Kylin_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x7131cdc32dd59ffaULL;
-  static const uint64_t static_value2 = 0x695dfef23c1bbcb8ULL;
+  static const uint64_t static_value1 = 0x29e193a426cfd4a4ULL;
+  static const uint64_t static_value2 = 0x2ee5c1e79efd2ba8ULL;
 };
 
 template<class ContainerAllocator>
@@ -149,9 +149,9 @@ CBUS cbus\n\
 ================================================================================\n\
 MSG: kylinbot_core/CBUS\n\
 uint32 fs\n\
-int16 px\n\
-int16 py\n\
-int16 pz\n\
+int32 px\n\
+int32 py\n\
+int32 pz\n\
 int16 pe\n\
 int16 pc\n\
 int16 vx\n\
@@ -181,7 +181,7 @@ namespace serialization
       stream.next(m.cbus);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER
+    ROS_DECLARE_ALLINONE_SERIALIZER;
   }; // struct Kylin_
 
 } // namespace serialization

@@ -56,13 +56,13 @@ struct CBUS_
    typedef uint32_t _fs_type;
   _fs_type fs;
 
-   typedef int16_t _px_type;
+   typedef int32_t _px_type;
   _px_type px;
 
-   typedef int16_t _py_type;
+   typedef int32_t _py_type;
   _py_type py;
 
-   typedef int16_t _pz_type;
+   typedef int32_t _pz_type;
   _pz_type pz;
 
    typedef int16_t _pe_type;
@@ -120,7 +120,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/opt/ros/indigo/share/std_msgs/cmake/../msg'], 'kylinbot_core': ['/home/ubuntu/workspace/icra2017rm-mmc-ros/catkin_ws/src/kylinbot_core/msg']}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'kylinbot_core': ['/home/ubuntu/workspace/ros/gnd-ros/catkin_ws/src/kylinbot_core/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -163,12 +163,12 @@ struct MD5Sum< ::kylinbot_core::CBUS_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "93fce3d0dc3169a0815342b4ce4be9c7";
+    return "02efdbd963407cada8f8ec3c4f70f1f5";
   }
 
   static const char* value(const ::kylinbot_core::CBUS_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x93fce3d0dc3169a0ULL;
-  static const uint64_t static_value2 = 0x815342b4ce4be9c7ULL;
+  static const uint64_t static_value1 = 0x02efdbd963407cadULL;
+  static const uint64_t static_value2 = 0xa8f8ec3c4f70f1f5ULL;
 };
 
 template<class ContainerAllocator>
@@ -188,9 +188,9 @@ struct Definition< ::kylinbot_core::CBUS_<ContainerAllocator> >
   static const char* value()
   {
     return "uint32 fs\n\
-int16 px\n\
-int16 py\n\
-int16 pz\n\
+int32 px\n\
+int32 py\n\
+int32 pz\n\
 int16 pe\n\
 int16 pc\n\
 int16 vx\n\
@@ -229,7 +229,7 @@ namespace serialization
       stream.next(m.vc);
     }
 
-    ROS_DECLARE_ALLINONE_SERIALIZER
+    ROS_DECLARE_ALLINONE_SERIALIZER;
   }; // struct CBUS_
 
 } // namespace serialization
@@ -248,11 +248,11 @@ struct Printer< ::kylinbot_core::CBUS_<ContainerAllocator> >
     s << indent << "fs: ";
     Printer<uint32_t>::stream(s, indent + "  ", v.fs);
     s << indent << "px: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.px);
+    Printer<int32_t>::stream(s, indent + "  ", v.px);
     s << indent << "py: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.py);
+    Printer<int32_t>::stream(s, indent + "  ", v.py);
     s << indent << "pz: ";
-    Printer<int16_t>::stream(s, indent + "  ", v.pz);
+    Printer<int32_t>::stream(s, indent + "  ", v.pz);
     s << indent << "pe: ";
     Printer<int16_t>::stream(s, indent + "  ", v.pe);
     s << indent << "pc: ";

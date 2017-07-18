@@ -61,16 +61,16 @@
   "kylinbot_core/Kylin")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<Kylin>)))
   "Returns md5sum for a message object of type '<Kylin>"
-  "7131cdc32dd59ffa695dfef23c1bbcb8")
+  "29e193a426cfd4a42ee5c1e79efd2ba8")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'Kylin)))
   "Returns md5sum for a message object of type 'Kylin"
-  "7131cdc32dd59ffa695dfef23c1bbcb8")
+  "29e193a426cfd4a42ee5c1e79efd2ba8")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<Kylin>)))
   "Returns full string definition for message of type '<Kylin>"
-  (cl:format cl:nil "uint32 frame_id~%CBUS cbus~%~%================================================================================~%MSG: kylinbot_core/CBUS~%uint32 fs~%int16 px~%int16 py~%int16 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
+  (cl:format cl:nil "uint32 frame_id~%CBUS cbus~%~%================================================================================~%MSG: kylinbot_core/CBUS~%uint32 fs~%int32 px~%int32 py~%int32 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'Kylin)))
   "Returns full string definition for message of type 'Kylin"
-  (cl:format cl:nil "uint32 frame_id~%CBUS cbus~%~%================================================================================~%MSG: kylinbot_core/CBUS~%uint32 fs~%int16 px~%int16 py~%int16 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
+  (cl:format cl:nil "uint32 frame_id~%CBUS cbus~%~%================================================================================~%MSG: kylinbot_core/CBUS~%uint32 fs~%int32 px~%int32 py~%int32 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <Kylin>))
   (cl:+ 0
      4

@@ -15,17 +15,17 @@
    (px
     :reader px
     :initarg :px
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (py
     :reader py
     :initarg :py
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (pz
     :reader pz
     :initarg :pz
-    :type cl:fixnum
+    :type cl:integer
     :initform 0)
    (pe
     :reader pe
@@ -132,17 +132,23 @@
   (cl:write-byte (cl:ldb (cl:byte 8 8) (cl:slot-value msg 'fs)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 16) (cl:slot-value msg 'fs)) ostream)
   (cl:write-byte (cl:ldb (cl:byte 8 24) (cl:slot-value msg 'fs)) ostream)
-  (cl:let* ((signed (cl:slot-value msg 'px)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
+  (cl:let* ((signed (cl:slot-value msg 'px)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
     (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
     )
-  (cl:let* ((signed (cl:slot-value msg 'py)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
+  (cl:let* ((signed (cl:slot-value msg 'py)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
     (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
     )
-  (cl:let* ((signed (cl:slot-value msg 'pz)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
+  (cl:let* ((signed (cl:slot-value msg 'pz)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 4294967296) signed)))
     (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
     (cl:write-byte (cl:ldb (cl:byte 8 8) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 16) unsigned) ostream)
+    (cl:write-byte (cl:ldb (cl:byte 8 24) unsigned) ostream)
     )
   (cl:let* ((signed (cl:slot-value msg 'pe)) (unsigned (cl:if (cl:< signed 0) (cl:+ signed 65536) signed)))
     (cl:write-byte (cl:ldb (cl:byte 8 0) unsigned) ostream)
@@ -182,15 +188,21 @@
     (cl:let ((unsigned 0))
       (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'px) (cl:if (cl:< unsigned 32768) unsigned (cl:- unsigned 65536))))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'px) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
     (cl:let ((unsigned 0))
       (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'py) (cl:if (cl:< unsigned 32768) unsigned (cl:- unsigned 65536))))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'py) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
     (cl:let ((unsigned 0))
       (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
-      (cl:setf (cl:slot-value msg 'pz) (cl:if (cl:< unsigned 32768) unsigned (cl:- unsigned 65536))))
+      (cl:setf (cl:ldb (cl:byte 8 16) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:ldb (cl:byte 8 24) unsigned) (cl:read-byte istream))
+      (cl:setf (cl:slot-value msg 'pz) (cl:if (cl:< unsigned 2147483648) unsigned (cl:- unsigned 4294967296))))
     (cl:let ((unsigned 0))
       (cl:setf (cl:ldb (cl:byte 8 0) unsigned) (cl:read-byte istream))
       (cl:setf (cl:ldb (cl:byte 8 8) unsigned) (cl:read-byte istream))
@@ -229,22 +241,22 @@
   "kylinbot_core/CBUS")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql '<CBUS>)))
   "Returns md5sum for a message object of type '<CBUS>"
-  "93fce3d0dc3169a0815342b4ce4be9c7")
+  "02efdbd963407cada8f8ec3c4f70f1f5")
 (cl:defmethod roslisp-msg-protocol:md5sum ((type (cl:eql 'CBUS)))
   "Returns md5sum for a message object of type 'CBUS"
-  "93fce3d0dc3169a0815342b4ce4be9c7")
+  "02efdbd963407cada8f8ec3c4f70f1f5")
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql '<CBUS>)))
   "Returns full string definition for message of type '<CBUS>"
-  (cl:format cl:nil "uint32 fs~%int16 px~%int16 py~%int16 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
+  (cl:format cl:nil "uint32 fs~%int32 px~%int32 py~%int32 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:message-definition ((type (cl:eql 'CBUS)))
   "Returns full string definition for message of type 'CBUS"
-  (cl:format cl:nil "uint32 fs~%int16 px~%int16 py~%int16 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
+  (cl:format cl:nil "uint32 fs~%int32 px~%int32 py~%int32 pz~%int16 pe~%int16 pc~%int16 vx~%int16 vy~%int16 vz~%int16 ve~%int16 vc~%~%~%"))
 (cl:defmethod roslisp-msg-protocol:serialization-length ((msg <CBUS>))
   (cl:+ 0
      4
-     2
-     2
-     2
+     4
+     4
+     4
      2
      2
      2

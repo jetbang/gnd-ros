@@ -59,7 +59,7 @@ class Kylin {
   }
 
   static getMessageSize(object) {
-    return 28;
+    return 34;
   }
 
   static datatype() {
@@ -69,7 +69,7 @@ class Kylin {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '7131cdc32dd59ffa695dfef23c1bbcb8';
+    return '29e193a426cfd4a42ee5c1e79efd2ba8';
   }
 
   static messageDefinition() {
@@ -81,9 +81,9 @@ class Kylin {
     ================================================================================
     MSG: kylinbot_core/CBUS
     uint32 fs
-    int16 px
-    int16 py
-    int16 pz
+    int32 px
+    int32 py
+    int32 pz
     int16 pe
     int16 pc
     int16 vx

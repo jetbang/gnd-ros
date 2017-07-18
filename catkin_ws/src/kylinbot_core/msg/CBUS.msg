@@ -1,7 +1,7 @@
 uint32 fs
-int16 px
-int16 py
-int16 pz
+int32 px
+int32 py
+int32 pz
 int16 pe
 int16 pc
 int16 vx

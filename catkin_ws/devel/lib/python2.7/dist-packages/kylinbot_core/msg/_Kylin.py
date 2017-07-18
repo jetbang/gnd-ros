@@ -8,7 +8,7 @@ import struct
 import kylinbot_core.msg
 
 class Kylin(genpy.Message):
-  _md5sum = "7131cdc32dd59ffa695dfef23c1bbcb8"
+  _md5sum = "29e193a426cfd4a42ee5c1e79efd2ba8"
   _type = "kylinbot_core/Kylin"
   _has_header = False #flag to mark the presence of a Header object
   _full_text = """uint32 frame_id
@@ -17,9 +17,9 @@ CBUS cbus
 ================================================================================
 MSG: kylinbot_core/CBUS
 uint32 fs
-int16 px
-int16 py
-int16 pz
+int32 px
+int32 py
+int32 pz
 int16 pe
 int16 pc
 int16 vx
@@ -69,7 +69,7 @@ int16 vc
     """
     try:
       _x = self
-      buff.write(_get_struct_2I10h().pack(_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc))
+      buff.write(_get_struct_2I3i7h().pack(_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -84,8 +84,8 @@ int16 vc
       end = 0
       _x = self
       start = end
-      end += 28
-      (_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc,) = _get_struct_2I10h().unpack(str[start:end])
+      end += 34
+      (_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc,) = _get_struct_2I3i7h().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -99,7 +99,7 @@ int16 vc
     """
     try:
       _x = self
-      buff.write(_get_struct_2I10h().pack(_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc))
+      buff.write(_get_struct_2I3i7h().pack(_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -115,8 +115,8 @@ int16 vc
       end = 0
       _x = self
       start = end
-      end += 28
-      (_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc,) = _get_struct_2I10h().unpack(str[start:end])
+      end += 34
+      (_x.frame_id, _x.cbus.fs, _x.cbus.px, _x.cbus.py, _x.cbus.pz, _x.cbus.pe, _x.cbus.pc, _x.cbus.vx, _x.cbus.vy, _x.cbus.vz, _x.cbus.ve, _x.cbus.vc,) = _get_struct_2I3i7h().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -125,9 +125,9 @@ _struct_I = genpy.struct_I
 def _get_struct_I():
     global _struct_I
     return _struct_I
-_struct_2I10h = None
-def _get_struct_2I10h():
-    global _struct_2I10h
-    if _struct_2I10h is None:
-        _struct_2I10h = struct.Struct("<2I10h")
-    return _struct_2I10h
+_struct_2I3i7h = None
+def _get_struct_2I3i7h():
+    global _struct_2I3i7h
+    if _struct_2I3i7h is None:
+        _struct_2I3i7h = struct.Struct("<2I3i7h")
+    return _struct_2I3i7h

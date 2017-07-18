@@ -64,7 +64,7 @@
    self)
   )
 
-(setf (get kylinbot_core::Kylin :md5sum-) "7131cdc32dd59ffa695dfef23c1bbcb8")
+(setf (get kylinbot_core::Kylin :md5sum-) "29e193a426cfd4a42ee5c1e79efd2ba8")
 (setf (get kylinbot_core::Kylin :datatype-) "kylinbot_core/Kylin")
 (setf (get kylinbot_core::Kylin :definition-)
       "uint32 frame_id
@@ -73,9 +73,9 @@ CBUS cbus
 ================================================================================
 MSG: kylinbot_core/CBUS
 uint32 fs
-int16 px
-int16 py
-int16 pz
+int32 px
+int32 py
+int32 pz
 int16 pe
 int16 pc
 int16 vx
@@ -88,6 +88,6 @@ int16 vc
 
 
 
-(provide :kylinbot_core/Kylin "7131cdc32dd59ffa695dfef23c1bbcb8")
+(provide :kylinbot_core/Kylin "29e193a426cfd4a42ee5c1e79efd2ba8")
 
 

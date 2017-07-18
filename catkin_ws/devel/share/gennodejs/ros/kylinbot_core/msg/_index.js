@@ -1,18 +1,18 @@
 
 "use strict";
 
-let ZGyro = require('./ZGyro.js');
-let Sonar = require('./Sonar.js');
-let PosCalib = require('./PosCalib.js');
 let CBUS = require('./CBUS.js');
 let Kylin = require('./Kylin.js');
+let Sonar = require('./Sonar.js');
 let VirtualRC = require('./VirtualRC.js');
+let PosCalib = require('./PosCalib.js');
+let ZGyro = require('./ZGyro.js');
 
 module.exports = {
-  ZGyro: ZGyro,
-  Sonar: Sonar,
-  PosCalib: PosCalib,
   CBUS: CBUS,
   Kylin: Kylin,
+  Sonar: Sonar,
   VirtualRC: VirtualRC,
+  PosCalib: PosCalib,
+  ZGyro: ZGyro,
 };

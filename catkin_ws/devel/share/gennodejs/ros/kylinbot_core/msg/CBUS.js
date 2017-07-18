@@ -105,11 +105,11 @@ class CBUS {
     // Serialize message field [fs]
     bufferOffset = _serializer.uint32(obj.fs, buffer, bufferOffset);
     // Serialize message field [px]
-    bufferOffset = _serializer.int16(obj.px, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.px, buffer, bufferOffset);
     // Serialize message field [py]
-    bufferOffset = _serializer.int16(obj.py, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.py, buffer, bufferOffset);
     // Serialize message field [pz]
-    bufferOffset = _serializer.int16(obj.pz, buffer, bufferOffset);
+    bufferOffset = _serializer.int32(obj.pz, buffer, bufferOffset);
     // Serialize message field [pe]
     bufferOffset = _serializer.int16(obj.pe, buffer, bufferOffset);
     // Serialize message field [pc]
@@ -134,11 +134,11 @@ class CBUS {
     // Deserialize message field [fs]
     data.fs = _deserializer.uint32(buffer, bufferOffset);
     // Deserialize message field [px]
-    data.px = _deserializer.int16(buffer, bufferOffset);
+    data.px = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [py]
-    data.py = _deserializer.int16(buffer, bufferOffset);
+    data.py = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [pz]
-    data.pz = _deserializer.int16(buffer, bufferOffset);
+    data.pz = _deserializer.int32(buffer, bufferOffset);
     // Deserialize message field [pe]
     data.pe = _deserializer.int16(buffer, bufferOffset);
     // Deserialize message field [pc]
@@ -157,7 +157,7 @@ class CBUS {
   }
 
   static getMessageSize(object) {
-    return 24;
+    return 30;
   }
 
   static datatype() {
@@ -167,16 +167,16 @@ class CBUS {
 
   static md5sum() {
     //Returns md5sum for a message object
-    return '93fce3d0dc3169a0815342b4ce4be9c7';
+    return '02efdbd963407cada8f8ec3c4f70f1f5';
   }
 
   static messageDefinition() {
     // Returns full string definition for message
     return `
     uint32 fs
-    int16 px
-    int16 py
-    int16 pz
+    int32 px
+    int32 py
+    int32 pz
     int16 pe
     int16 pc
     int16 vx
